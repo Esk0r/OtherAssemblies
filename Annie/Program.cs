@@ -170,12 +170,12 @@ namespace Annie
 
         private static void OnCreateObject(GameObject sender, EventArgs args)
         {
-            if (sender.IsAlly || !(sender is Obj_SpellMissile) || !Config.Item("autoShield").GetValue<bool>())
+            if (sender.IsAlly || !(sender is MissileClient) || !Config.Item("autoShield").GetValue<bool>())
             {
                 return;
             }
 
-            var missile = (Obj_SpellMissile) sender;
+            var missile = (MissileClient) sender;
             if (!(missile.SpellCaster is Obj_AI_Hero) || !(missile.Target.IsMe))
             {
                 return;
